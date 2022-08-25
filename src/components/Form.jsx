@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 
 export default class Form extends Component {
   render() {
@@ -59,7 +60,7 @@ export default class Form extends Component {
             <input
               data-testid="image-input"
               value={ cardImage }
-              onChange={ onInputChang }
+              onChange={ onInputChange }
               type="text"
               placeholder="Imagem da carta"
             />
@@ -109,9 +110,9 @@ Form.propTypes = {
   cardAttr3: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.boolean.isRequired,
-  isSaveButtonDisabled: PropTypes.boolean.isRequired,
-  onInputChange: PropTypes.callback.isRequired,
-  onSaveButtonClick: PropTypes.callback.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
 
 };
