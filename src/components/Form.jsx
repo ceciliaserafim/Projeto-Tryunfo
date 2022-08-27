@@ -13,6 +13,7 @@ export default class Form extends Component {
         <div>
           <label htmlFor="Nome">
             <input
+              name="identificação"
               data-testid="name-input"
               value={ cardName }
               onChange={ onInputChange }
@@ -22,6 +23,7 @@ export default class Form extends Component {
           </label>
           <label htmlFor="Descrição">
             <textarea
+              name="descrever"
               data-testid="description-input"
               value={ cardDescription }
               onChange={ onInputChange }
