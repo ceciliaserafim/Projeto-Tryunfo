@@ -33,6 +33,7 @@ export default class Form extends Component {
           </label>
           <label htmlFor="Atributo1">
             <input
+              name="atributo1"
               data-testid="attr1-input"
               value={ cardAttr1 }
               onChange={ onInputChange }
@@ -42,6 +43,7 @@ export default class Form extends Component {
           </label>
           <label htmlFor="Atributo2">
             <input
+              name="atributo2"
               data-testid="attr2-input"
               value={ cardAttr2 }
               onChange={ onInputChange }
@@ -51,6 +53,7 @@ export default class Form extends Component {
           </label>
           <label htmlFor="Atributo3">
             <input
+              name="atributo3"
               data-testid="attr3-input"
               value={ cardAttr3 }
               onChange={ onInputChange }
@@ -60,6 +63,7 @@ export default class Form extends Component {
           </label>
           <label htmlFor="Imagem da carta">
             <input
+              name="imagemCarta"
               data-testid="image-input"
               value={ cardImage }
               onChange={ onInputChange }
@@ -69,10 +73,10 @@ export default class Form extends Component {
           </label>
           <label htmlFor="carta">
             <select
+              name="seleciona"
               data-testid="rare-input"
               value={ cardRare }
               onChange={ onInputChange }
-              name="seleciona"
               id="carta"
             >
               <option value="normal">normal</option>
@@ -84,6 +88,7 @@ export default class Form extends Component {
           </label>
           <label htmlFor="Carta super trunfo">
             <input
+              name="cartaTrunfo"
               data-testid="trunfo-input"
               checked={ cardTrunfo }
               onChange={ onInputChange }
@@ -91,6 +96,7 @@ export default class Form extends Component {
             />
           </label>
           <button
+            name="botaoSalvar"
             data-testid="save-button"
             disabled={ isSaveButtonDisabled }
             onClick={ onSaveButtonClick }

@@ -24,20 +24,24 @@ export default class Card extends Component {
         </li>
         <li
           data-testid="attr1-card"
-          value={ cardAttr1 }
-        />
+        >
+          { cardAttr1 }
+        </li>
         <li
           data-testid="attr2-card"
-          value={ cardAttr2 }
-        />
+        >
+          { cardAttr2 }
+        </li>
         <li
           data-testid="attr3-card"
-          value={ cardAttr3 }
-        />
+        >
+          { cardAttr3 }
+        </li>
         <li
           data-testid="rare-card"
-          value={ cardRare }
-        />
+        >
+          { cardRare }
+        </li>
         {{ cardTrunfo } && <p data-testid="trunfo-card">Super Trunfo</p>}
       </div>
     );
