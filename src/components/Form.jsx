@@ -96,7 +96,7 @@ export default class Form extends Component {
             />
           </label>
           <button
-            name="botaoSalvar"
+            name="travarSalvar"
             data-testid="save-button"
             disabled={ isSaveButtonDisabled }
             onClick={ onSaveButtonClick }
