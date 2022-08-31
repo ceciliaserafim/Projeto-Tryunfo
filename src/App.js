@@ -5,13 +5,15 @@ import Card from './components/Card';
 class App extends React.Component {
   state = { identificação: '',
     descrever: '',
-    atributo1: '0',
-    atributo2: '0',
-    atributo3: '0',
+    atributo1: 0,
+    atributo2: 0,
+    atributo3: 0,
     imagemCarta: '',
     seleciona: 'normal',
     cartaTrunfo: false,
     travarSalvar: true,
+    // data é o local onde vamos armazenar as informações obtidas ao clicar no botão salvar
+    data: [],
   };
 
   onInputChange = ({ target }) => {
@@ -54,6 +56,41 @@ class App extends React.Component {
     });
   };
 
+  // Requisito 6.
+  // 1. Criar função para salvar o clicar
+  onSaveButtonClick = () => {
+    const { identificação,
+      descrever,
+      atributo1,
+      atributo2,
+      atributo3,
+      imagemCarta,
+      seleciona,
+    } = this.state;
+    const visualizacao = {
+      identificação,
+      descrever,
+      atributo1,
+      atributo2,
+      atributo3,
+      imagemCarta,
+      seleciona,
+    };
+    // console.log(visualizacao);
+    this.setState((previewState) => ({
+      data: [...previewState.data, visualizacao],
+      identificação: '',
+      descrever: '',
+      atributo1: 0,
+      atributo2: 0,
+      atributo3: 0,
+      imagemCarta: '',
+      seleciona: 'normal',
+    }));
+  };
+
+  // 1. As informações que foram preenchidas no formulário deverão ser salvas no estado da sua aplicação.
+
   render() {
     // Desestruturação
     const {
@@ -73,7 +110,7 @@ class App extends React.Component {
         <Form
           onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ travarSalvar }
-          // onSaveButtonClick={ this.handleButtonDisable }
+          onSaveButtonClick={ this.onSaveButtonClick }
           cardName={ identificação }
           cardDescription={ descrever }
           cardAttr1={ atributo1 }
@@ -100,4 +137,4 @@ class App extends React.Component {
 }
 
 export default App;
-// Consegui concluir a questão com a ajuda do colega João Matheus.
+// Consegui concluir o requisito 4 com a ajuda do colega João Matheus.
