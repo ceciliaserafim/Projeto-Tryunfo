@@ -14,12 +14,17 @@ class App extends React.Component {
     travarSalvar: true,
     // data é o local onde vamos armazenar as informações obtidas ao clicar no botão salvar
     data: [],
+    hasTrunfo: false,
   };
 
   onInputChange = ({ target }) => {
     const { name, type } = target;
     // Caso seja checkbox target.checkbox se não target.value
     const value = type === 'checkbox' ? target.checked : target.value;
+
+    // if (type === 'checkbox' && target.checked === true) {
+
+    // }
     this.setState({
       [name]: value,
     }, () => {
@@ -66,7 +71,9 @@ class App extends React.Component {
       atributo3,
       imagemCarta,
       seleciona,
+      cartaTrunfo,
     } = this.state;
+    // Crio um objeto com todas as minhas propriedades
     const visualizacao = {
       identificação,
       descrever,
@@ -75,8 +82,11 @@ class App extends React.Component {
       atributo3,
       imagemCarta,
       seleciona,
+      cartaTrunfo,
     };
     // console.log(visualizacao);
+    // espalho o meu data para pre visualizar as minhas propriedades
+    // para limpar o campo eu subscrevo as minhas propriedades com os valores dados pelo requisito
     this.setState((previewState) => ({
       data: [...previewState.data, visualizacao],
       identificação: '',
@@ -87,10 +97,13 @@ class App extends React.Component {
       imagemCarta: '',
       seleciona: 'normal',
     }));
+    if (cartaTrunfo) this.setState({ hasTrunfo: true });
   };
 
-  // 1. As informações que foram preenchidas no formulário deverão ser salvas no estado da sua aplicação.
-
+  // existe carta super trunfo? true : false
+  // cardTrunfo = ({ target }) => {
+  //   const { name, type } = target;
+  //   const  = type === 'checkbox' ? target.checked : target.value;
   render() {
     // Desestruturação
     const {
@@ -103,6 +116,7 @@ class App extends React.Component {
       seleciona,
       cartaTrunfo,
       travarSalvar,
+      hasTrunfo,
     } = this.state;
     return (
       <div>
@@ -119,6 +133,7 @@ class App extends React.Component {
           cardImage={ imagemCarta }
           cardRare={ seleciona }
           cardTrunfo={ cartaTrunfo }
+          hasTrunfo={ hasTrunfo }
         />
         <Card
           cardName={ identificação }
