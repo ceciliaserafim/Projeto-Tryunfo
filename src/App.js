@@ -15,6 +15,7 @@ class App extends React.Component {
     // data é o local onde vamos armazenar as informações obtidas ao clicar no botão salvar
     data: [],
     hasTrunfo: false,
+    guardaALista: false,
   };
 
   onInputChange = ({ target }) => {
@@ -97,13 +98,14 @@ class App extends React.Component {
       imagemCarta: '',
       seleciona: 'normal',
     }));
-    if (cartaTrunfo) this.setState({ hasTrunfo: true });
+    if (cartaTrunfo) {
+      this.setState({
+        hasTrunfo: true,
+        guardaALista: true,
+      });
+    }
   };
 
-  // existe carta super trunfo? true : false
-  // cardTrunfo = ({ target }) => {
-  //   const { name, type } = target;
-  //   const  = type === 'checkbox' ? target.checked : target.value;
   render() {
     // Desestruturação
     const {
@@ -116,9 +118,12 @@ class App extends React.Component {
       seleciona,
       cartaTrunfo,
       travarSalvar,
+      data,
       hasTrunfo,
+      guardaALista,
     } = this.state;
     return (
+
       <div>
         <h1>Tryunfo</h1>
         <Form
@@ -146,6 +151,21 @@ class App extends React.Component {
           cardTrunfo={ cartaTrunfo }
 
         />
+
+        {/* Requisito 8 */}
+
+        { guardaALista === true
+          && data.map((element) => (<Card
+            key={ element.name }
+            cardName={ element.identificação }
+            cardDescription={ element.descrever }
+            cardAttr1={ element.atributo1 }
+            cardAttr2={ element.atributo2 }
+            cardAttr3={ element.atributo3 }
+            cardImage={ element.imagemCarta }
+            cardRare={ element.seleciona }
+            cardTrunfo={ element.cartaTrunfo }
+          />))}
       </div>
     );
   }
